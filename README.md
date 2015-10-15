@@ -1,4 +1,4 @@
-# RGBD Sync SDK - Data Management Documentation
+# RGBD Sync SDK
 
 ## RGBD Sync SDK
 
