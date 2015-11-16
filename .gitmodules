@@ -1,3 +1,6 @@
 [submodule "DataManagement"]
 	path = DataManagement
 	url = https://github.com/Vaufreyd/DataManagement.git
+[submodule "Drawing"]
+	path = Drawing
+	url = https://github.com/Vaufreyd/Drawing.git
