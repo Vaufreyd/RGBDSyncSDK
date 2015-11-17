@@ -19,7 +19,7 @@ RGBD Sync SDK and submodules are free software; you can redistribute and/or modi
 [Consult the license on the FSF website](http://www.gnu.org/licenses/lgpl-3.0.txt).
 
 If you are a researcher and this software helps you, please cite our publication on MobileRGBD:  
-*MobileRGBD, An Open Benchmark Corpus for mobile RGB-D Related Algorithms*, Dominique Vaufreydaz, Amaury N&egrave;gre,
++ *MobileRGBD, An Open Benchmark Corpus for mobile RGB-D Related Algorithms*, Dominique Vaufreydaz, Amaury N&egrave;gre,
 13th International Conference on Control, Automation, Robotics and Vision, Dec 2014, Singapore, 2014. [(go to author version)](https://hal.inria.fr/hal-01095667)
 
 Copyright (c) 2015, University of Grenoble Alpes and Inria, All rights reserved.
