@@ -11,7 +11,7 @@ to work on this corpus, and anyone who need to use it within the term of the LIC
 ## Kinect Folder
 
 The Kinect folder contains data definition that permits to read data from the Kinect2 device under Linux and obviously Windows (not tested on Mac OSX).
-Classes to record and/or process only all data comming from the Kinect2 devide are provided (Windows Only).
+Classes to record and/or process all data comming from the Kinect2 device are provided (Windows Only).
 
 ## Participate!
 
