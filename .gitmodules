@@ -4,3 +4,9 @@
 [submodule "Drawing"]
 	path = Drawing
 	url = https://github.com/Vaufreyd/Drawing.git
+[submodule "Map"]
+	path = Map
+	url = https://github.com/Vaufreyd/Map.git
+[submodule "Omiscid"]
+	path = Omiscid
+	url = https://github.com/Vaufreyd/Omiscid.git
