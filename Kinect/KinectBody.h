@@ -72,15 +72,14 @@ public:
 	 *
 	 * @param Buffer [in] Buffer to use for KinectBody data
 	 */
-	KinectBody(unsigned char *Buffer)
+	KinectBody(unsigned char *Buffer) : KinectBody()
 	{
-		KinectBody();
 		Set(Buffer);
 	}
 
 	/** @brief Virtual destructor, always.
 	 */
-	virtual ~KinectBody();
+	virtual ~KinectBody() {}
 
 	/** @brief Set will put all reference to memory buffer for KinectBody data
 	 *
