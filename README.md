@@ -27,6 +27,10 @@ As we used submodules in our project, in order to clone this repo, you must ask 
 
     $> git clone --recursive https://github.com/Vaufreyd/RGBDSyncSDK.git
     
+## Example
+
+You can start using this SDK using the [_GenerateVideoFromRecords example_](https://github.com/Vaufreyd/RGBDSyncSDK/tree/master/GenerateVideoFromRecords).
+    
 ## Participate!
 
 You can help us finding bugs, proposing new functionalities and more directly on this website! Click on the "New issue" button in the menu to do that.
