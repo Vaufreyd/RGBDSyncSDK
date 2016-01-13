@@ -81,7 +81,7 @@ The options are:
 ### Test on data
 
 First, you must get retrieve a sample of the MobileRGBD corpus. This file is a **480 MiB** `7z` file that contains a static recording of a dummy ([click here to download](http://mobilergbd.inrialpes.fr/RGBDSyncSDK-TestData.7z)).
-You just need to decompress it once: you do not need to decompress 7z files from the folder itself. Then, run the program:
+You just need to decompress it once: you do not need to decompress 7z files from the folder itself (`7z x RGBDSyncSDK-TestData.7z`). Then, run the program:
 
     $> ./GenerateVideoFromRecords -ShowLiveVideo $PATH_TO_FOLDER/RGBDSyncSDK-TestData -VideoEdit
 
@@ -93,6 +93,7 @@ As we used `-ShowLiveVideo`, we are in interactive mode. Commands are:
 - _s_: skip 10 frames
 - _t_: go to console and type a timestamp to reach. Generated video will miss data (use it for debugging purpose mode only).
 
+To start processing the video, you must push _space_.
 At the end, you can find a `ResVideo` inside `$PATH_TO_FOLDER/RGBDSyncSDK-TestData` folder containing a `VideoEdit_0001.mp4`. If you relaunch the process, a the file number will be increased to prevent erasing previous computation.
   
 ## Participate!

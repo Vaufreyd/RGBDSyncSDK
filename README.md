@@ -8,6 +8,12 @@ from separate sources almost like in ROS bag.
 The RGBD Sync SDK has been used to record the [MobileRGBD corpus](http://MobileRGBD.inrialpes.fr/). It is available for people who want
 to work on this corpus, and anyone who need to use it within the term of the LICENSE.
 
+## Cloning
+
+As we used submodules in our project, in order to clone this repo, you must ask git to work recursively:
+
+    $> git clone --recursive https://github.com/Vaufreyd/RGBDSyncSDK.git
+    
 ## Participate!
 
 You can help us finding bugs, proposing new functionalities and more directly on this website! Click on the "New issue" button in the menu to do that.
