@@ -29,7 +29,7 @@ As we used submodules in our project, in order to clone this repo, you must ask 
     
 For the same reason, in order to update this repo, you must ask git to work recursively with submodules:
 
-    $> git pull --recursive-submodules
+    $> git pull --recurse-submodules
 
 ## Example
 
