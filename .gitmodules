@@ -10,3 +10,6 @@
 [submodule "Omiscid"]
 	path = Omiscid
 	url = https://github.com/Vaufreyd/Omiscid.git
+[submodule "CMakeModule"]
+	path = CMakeModule
+	url = https://github.com/Vaufreyd/CMakeModule.git
