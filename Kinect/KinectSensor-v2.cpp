@@ -35,6 +35,8 @@ KinectSensor::~KinectSensor()
 {
 	StopThread();
 
+	Join(5000);
+
 	StopRecording();
 
 	while( RecContexts.IsNotEmpty() )
@@ -424,6 +426,7 @@ bool KinectSensor::Init( int DesiredSources )
 	{
 		// Wait for Init phase to be done within 5 seconds in the other thread
 		// Note, if the thread failed, the event will also be signals
+		ProtectAccess_SL.Unlock();
 
 		InitStepDone.Wait(5000);
 		return InitStepDone.Data;

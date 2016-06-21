@@ -65,7 +65,7 @@ public:
 	void SaveDataAndIncreaseInputNumber( KinectRecording& RecordContext, const struct timeb& lTimestamp, char * SuppInfo /* = nullptr */ );
 
 // protected:
-	Omiscid::Mutex ProtectAccess;
+	Omiscid::ReentrantMutex ProtectAccess;
 
 	bool IsRecording;
 

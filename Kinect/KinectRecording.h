@@ -2,10 +2,13 @@
 #define __KINECT_RECORDING_H__
 
 #include <Messaging/Serializable.h>
+#include <System/Mutex.h>
+#include <System/LockManagement.h>
 
 #include "KinectBasics.h"
 
 #include <sys/timeb.h>
+
 
 class KinectRecording : public Omiscid::Serializable
 {
@@ -28,6 +31,8 @@ public:
 
 	Omiscid::SimpleString FilePrefix;
 	bool IsActive;
+
+	Omiscid::Mutex InternalProtection;
 
 	static void CloseAndSetNull(FILE*& fd)
 	{
@@ -60,6 +65,8 @@ public:
 		
 	void Init(const Omiscid::SimpleString& Prefix, bool doRawRecord = false )
 	{
+		Omiscid::SmartLocker InternalProtection_SL(InternalProtection);
+
 		// For standard recording
 		FilePrefix		= Prefix;
 		TimestampedFile = (FILE*)nullptr;
@@ -98,6 +105,8 @@ public:
 
 	virtual bool StartRecording( const char* SessionFolder )
 	{
+		Omiscid::SmartLocker InternalProtection_SL(InternalProtection);
+
 		Omiscid::SimpleString str;
 		Omiscid::SimpleString str2;
 
@@ -168,6 +177,8 @@ public:
 
 	virtual void StopRecording(double CurrentTime)
 	{
+		Omiscid::SmartLocker InternalProtection_SL(InternalProtection);
+
 		if ( RawRecording == true )
 		{
 			CloseAndSetNull(DescriptionFile);
@@ -178,6 +189,8 @@ public:
 
 	void SaveDataAndIncreaseInputNumber( const struct timeb& lTimestamp, char * SuppInfo /* = nullptr */ )
 	{
+		Omiscid::SmartLocker InternalProtection_SL(InternalProtection);
+
 		if ( RawFile != (FILE*)nullptr )
 		{
 			if ( BufferSize != 0 )
