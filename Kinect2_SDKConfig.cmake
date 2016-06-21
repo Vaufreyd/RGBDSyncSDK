@@ -1,5 +1,5 @@
 #  =============================================================================
-#  Kinect2 SDK configuration (sor Windows)
+#  Kinect2 SDK configuration (for Windows)
 #
 #  This package will search for the Kinect2 SDK from Microsoft installed on
 #  your Windows. It will copy necessary files (dll and faces models) to the
