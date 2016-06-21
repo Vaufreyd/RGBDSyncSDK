@@ -46,7 +46,7 @@ public:
 			IKinectSensor * pKinectSensor = nullptr;
 			if ( FAILED(GetDefaultKinectSensor(&pKinectSensor)) )
 			{
-				fprintf( stderr, "Unable to find a Kinect Sensor\n" );
+				fprintf( stderr, "Unable to find a Kinect Sensor\n");
 			}
 
 			if ( FAILED(pKinectSensor->get_CoordinateMapper(&CoordinateMapper)) )
@@ -184,6 +184,7 @@ public:
 		pBody->get_LeanTrackingState(LeanTrackingState);
 
 		pBody->get_TrackingId(trackingId);
+		// fprintf( stderr, "Body %lu\n", *trackingId );
 
 		pBody->GetJoints(JointType_Count, Joints);
 		pBody->GetJointOrientations(JointType_Count, JointOrientations);
@@ -216,10 +217,22 @@ public:
 		if ( DrawInDepth == true )
 		{
 			Pixels = JointsInDepthSpace;
+			// Are joints within image ?
+			if ( Pixels[joint0].x < 0 || Pixels[joint0].x > DepthWidth || Pixels[joint0].y < 0 || Pixels[joint0].y > DepthHeight ||
+				 Pixels[joint1].x < 0 || Pixels[joint1].x > DepthWidth || Pixels[joint1].y < 0 || Pixels[joint1].y > DepthHeight )
+			{
+				return;
+			}
 		}
 		else
 		{
 			Pixels = JointsInColorSpace;
+			// Are joints within image ?
+			if ( Pixels[joint0].x < 0 || Pixels[joint0].x > CamWidth || Pixels[joint0].y < 0 || Pixels[joint0].y > CamHeight ||
+				 Pixels[joint1].x < 0 || Pixels[joint1].x > CamWidth || Pixels[joint1].y < 0 || Pixels[joint1].y > CamHeight )
+			{
+				return;
+			}
 		}
 
 		// If we can't find either of these joints, exit
@@ -251,7 +264,7 @@ public:
 				cv::Point((int)(Pixels[joint0].x*scale_x), (int)(Pixels[joint0].y*scale_y)),
 				cv::Point((int)(Pixels[joint1].x*scale_x), (int)(Pixels[joint1].y*scale_y)),
 				cvScalar(0,0,255),
-				2,
+				1,
 				8,
 				0);
 		}
@@ -281,38 +294,38 @@ public:
 		}
 
 		// Torso
-		DrawBone(WhereToDraw,JointType_Head, JointType_Neck, DrawInDepth);
-		DrawBone(WhereToDraw,JointType_Neck, JointType_SpineShoulder, DrawInDepth);
-		DrawBone(WhereToDraw,JointType_SpineShoulder, JointType_SpineMid, DrawInDepth);
-		DrawBone(WhereToDraw,JointType_SpineMid, JointType_SpineBase, DrawInDepth);
-		DrawBone(WhereToDraw,JointType_SpineShoulder, JointType_ShoulderRight, DrawInDepth);
-		DrawBone(WhereToDraw,JointType_SpineShoulder, JointType_ShoulderLeft, DrawInDepth);
-		DrawBone(WhereToDraw,JointType_SpineBase, JointType_HipRight, DrawInDepth);
-		DrawBone(WhereToDraw,JointType_SpineBase, JointType_HipLeft, DrawInDepth);
+		DrawBone(WhereToDraw,JointType_Head, JointType_Neck, DrawInDepth, scale_x, scale_y );
+		DrawBone(WhereToDraw,JointType_Neck, JointType_SpineShoulder, DrawInDepth, scale_x, scale_y );
+		DrawBone(WhereToDraw,JointType_SpineShoulder, JointType_SpineMid, DrawInDepth, scale_x, scale_y );
+		DrawBone(WhereToDraw,JointType_SpineMid, JointType_SpineBase, DrawInDepth, scale_x, scale_y );
+		DrawBone(WhereToDraw,JointType_SpineShoulder, JointType_ShoulderRight, DrawInDepth, scale_x, scale_y );
+		DrawBone(WhereToDraw,JointType_SpineShoulder, JointType_ShoulderLeft, DrawInDepth, scale_x, scale_y );
+		DrawBone(WhereToDraw,JointType_SpineBase, JointType_HipRight, DrawInDepth, scale_x, scale_y );
+		DrawBone(WhereToDraw,JointType_SpineBase, JointType_HipLeft, DrawInDepth, scale_x, scale_y );
     
 		// Right Arm    
-		DrawBone(WhereToDraw,JointType_ShoulderRight, JointType_ElbowRight, DrawInDepth);
-		DrawBone(WhereToDraw,JointType_ElbowRight, JointType_WristRight, DrawInDepth);
-		DrawBone(WhereToDraw,JointType_WristRight, JointType_HandRight, DrawInDepth);
-		DrawBone(WhereToDraw,JointType_HandRight, JointType_HandTipRight, DrawInDepth);
-		DrawBone(WhereToDraw,JointType_WristRight, JointType_ThumbRight, DrawInDepth);
+		DrawBone(WhereToDraw,JointType_ShoulderRight, JointType_ElbowRight, DrawInDepth, scale_x, scale_y );
+		DrawBone(WhereToDraw,JointType_ElbowRight, JointType_WristRight, DrawInDepth, scale_x, scale_y );
+		DrawBone(WhereToDraw,JointType_WristRight, JointType_HandRight, DrawInDepth, scale_x, scale_y );
+		DrawBone(WhereToDraw,JointType_HandRight, JointType_HandTipRight, DrawInDepth, scale_x, scale_y );
+		DrawBone(WhereToDraw,JointType_WristRight, JointType_ThumbRight, DrawInDepth, scale_x, scale_y );
 
 		// Left Arm
-		DrawBone(WhereToDraw,JointType_ShoulderLeft, JointType_ElbowLeft, DrawInDepth);
-		DrawBone(WhereToDraw,JointType_ElbowLeft, JointType_WristLeft, DrawInDepth);
-		DrawBone(WhereToDraw,JointType_WristLeft, JointType_HandLeft, DrawInDepth);
-		DrawBone(WhereToDraw,JointType_HandLeft, JointType_HandTipLeft, DrawInDepth);
-		DrawBone(WhereToDraw,JointType_WristLeft, JointType_ThumbLeft, DrawInDepth);
+		DrawBone(WhereToDraw,JointType_ShoulderLeft, JointType_ElbowLeft, DrawInDepth, scale_x, scale_y );
+		DrawBone(WhereToDraw,JointType_ElbowLeft, JointType_WristLeft, DrawInDepth, scale_x, scale_y );
+		DrawBone(WhereToDraw,JointType_WristLeft, JointType_HandLeft, DrawInDepth, scale_x, scale_y );
+		DrawBone(WhereToDraw,JointType_HandLeft, JointType_HandTipLeft, DrawInDepth, scale_x, scale_y );
+		DrawBone(WhereToDraw,JointType_WristLeft, JointType_ThumbLeft, DrawInDepth, scale_x, scale_y );
 
 		// Right Leg
-		DrawBone(WhereToDraw,JointType_HipRight, JointType_KneeRight, DrawInDepth);
-		DrawBone(WhereToDraw,JointType_KneeRight, JointType_AnkleRight, DrawInDepth);
-		DrawBone(WhereToDraw,JointType_AnkleRight, JointType_FootRight, DrawInDepth);
+		DrawBone(WhereToDraw,JointType_HipRight, JointType_KneeRight, DrawInDepth, scale_x, scale_y );
+		DrawBone(WhereToDraw,JointType_KneeRight, JointType_AnkleRight, DrawInDepth, scale_x, scale_y );
+		DrawBone(WhereToDraw,JointType_AnkleRight, JointType_FootRight, DrawInDepth, scale_x, scale_y );
 
 		// Left Leg
-		DrawBone(WhereToDraw,JointType_HipLeft, JointType_KneeLeft, DrawInDepth);
-		DrawBone(WhereToDraw,JointType_KneeLeft, JointType_AnkleLeft, DrawInDepth);
-		DrawBone(WhereToDraw,JointType_AnkleLeft, JointType_FootLeft, DrawInDepth);
+		DrawBone(WhereToDraw,JointType_HipLeft, JointType_KneeLeft, DrawInDepth, scale_x, scale_y );
+		DrawBone(WhereToDraw,JointType_KneeLeft, JointType_AnkleLeft, DrawInDepth, scale_x, scale_y );
+		DrawBone(WhereToDraw,JointType_AnkleLeft, JointType_FootLeft, DrawInDepth, scale_x, scale_y );
 	}
 
 #endif // ACTIVATE_KINECT_DRAWING
@@ -356,6 +369,7 @@ public:
 			BodiesInformation[i].Set(lBuffer);
 			lBuffer += KinectBody::BodySize;
 			BodyIsPresent[i] = false;
+			ppBodies[i] = nullptr;
 		}
 	}
 
@@ -363,6 +377,34 @@ public:
 	 */
 	virtual ~KinectBodies()
 	{
+		for( int i = 0; i < BODY_COUNT; i++ )
+		{
+			SafeRelease(ppBodies[i]);
+		}
+	}
+
+	
+	/** @brief Copy operator
+	 */
+	KinectBodies& operator=(KinectBodies& Other)
+	{
+		ActualNbBody = Other.ActualNbBody;
+
+		// Copy ppBodies is useless, it has been released
+		// BodyIsPresent
+		memcpy( BodyIsPresent, Other.BodyIsPresent, sizeof(BodyIsPresent) );
+		// Initial body index
+		memcpy( InitialBodyIndex, Other.InitialBodyIndex, sizeof(InitialBodyIndex) );
+
+		if ( ActualNbBody == 0 )
+		{
+				return Other;
+		}
+
+		// copy data to data
+		memcpy( BodyData, Other.BodyData, AllocatedBuffer.GetLength() );
+
+		return Other;
 	}
 
 #ifdef KINECT_LIVE
@@ -386,12 +428,14 @@ public:
 				if ( IsTracked == FALSE )
 				{
 					BodyIsPresent[i] = false;
+					SafeRelease(ppBodies[i]);
 					continue;
 				}
 
 				BodyIsPresent[i] = true;
 				BodiesInformation[ActualNbBody].Init(pBody);
-
+				InitialBodyIndex[ActualNbBody] = i;
+				
 				ActualNbBody++;
 			}
 
@@ -405,7 +449,8 @@ public:
 	IBody* ppBodies[BODY_COUNT];				/*!< @brief Store Body from Kinect, maybe sparse, i.e. 2 skeletons but 1st and 5th. */
 #endif 
 
-	bool BodyIsPresent[BODY_COUNT];				/*!< @brief Store presence of body data state. */		
+	bool BodyIsPresent[BODY_COUNT];				/*!< @brief Store presence of body data state. */
+	int InitialBodyIndex[BODY_COUNT];			/*!< @brief Store index in original Kinect data. */
 
 	KinectBody BodiesInformation[BODY_COUNT];	/*!< @brief Up to BODY_COUNT KinectBody can be handled. */
 	unsigned int ActualNbBody;					/*!< @brief Actual number of body in the buffer. */
