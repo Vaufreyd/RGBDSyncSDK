@@ -54,6 +54,10 @@ include_directories("${PARENTWD}/Drawing/")
 # Add main files from the project
 file(GLOB SRCS RELATIVE ${CWD}
 	"${CWD}/*.cpp"
+)
+
+# Add drawing files
+file(GLOB DRAWING RELATIVE ${CWD}
 	"${PARENTWD}/Drawing/Drawable.cpp"
 	"${PARENTWD}/Drawing/DrawRawData.cpp"
 	"${PARENTWD}/Drawing/DrawCameraView.cpp"
@@ -98,4 +102,4 @@ target_link_libraries(RecordKinect ws2_32.lib)
 source_group("Omiscid\\System" FILES ${OmiscidSystem_SRCS} ${OmiscidSystem_HDRS})
 source_group("Omiscid\\Messaging" FILES ${OmiscidMessaging_SRCS} ${OmiscidMessaging_HDRS})
 source_group("Kinect" FILES ${KINECT})
-
+source_group("Drawing" FILES ${DRAWING})
