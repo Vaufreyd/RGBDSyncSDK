@@ -369,7 +369,9 @@ public:
 			BodiesInformation[i].Set(lBuffer);
 			lBuffer += KinectBody::BodySize;
 			BodyIsPresent[i] = false;
+#ifdef KINECT_LIVE			
 			ppBodies[i] = nullptr;
+#endif
 		}
 	}
 
@@ -377,10 +379,12 @@ public:
 	 */
 	virtual ~KinectBodies()
 	{
+#ifdef KINECT_LIVE		
 		for( int i = 0; i < BODY_COUNT; i++ )
 		{
 			SafeRelease(ppBodies[i]);
 		}
+#endif
 	}
 
 	
