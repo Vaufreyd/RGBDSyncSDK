@@ -20,7 +20,7 @@ First this repository contains submodules:
 On can also find subfolders:
 + _Kinect_: All classes dedicated to Kinect2. Under Windows, there will be classes to read, to record and/or to process data. Under Linux, everything is define to read Kinect2 data from MobileRGBD recordings.
 + [**_GenerateVideoFromRecords_**](https://github.com/Vaufreyd/RGBDSyncSDK/tree/master/GenerateVideoFromRecords): an example to show how to synchronously read data from the corpus and generate a (composite) mp4 video.
-+ [**_RecordKinect_**](https://github.com/Vaufreyd/RGBDSyncSDK/tree/master/RecordKinect): a project to make your own records using the Kinect2 device under Windows (RGB, Depth, Infrared, Body, Face, Audio). This project use native Kinect2 SDK under Windows. Your records will be readable using RGBDSyncSDK under Windows/Linux/Mac OSX.
++ [**_RecordKinect_**](https://github.com/Vaufreyd/RGBDSyncSDK/tree/master/RecordKinect): a project to make your own records using the Kinect2 device under Windows (RGB, Depth, Infrared, Body, Face, Audio). This project uses native Kinect2 SDK under Windows. Your records will be readable using RGBDSyncSDK under Windows/Linux/Mac OSX.
 
 ## Cloning and updating
 
