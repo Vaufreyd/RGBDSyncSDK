@@ -13,3 +13,6 @@
 [submodule "CMakeModule"]
 	path = CMakeModule
 	url = https://github.com/Vaufreyd/CMakeModule.git
+[submodule "Kinect"]
+	path = Kinect
+	url = https://github.com/Vaufreyd/Kinect.git
