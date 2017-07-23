@@ -12,10 +12,10 @@ to work on this corpus, and anyone who need to use it within the term of the LIC
 ## Content
 
 First this repository contains submodules:
-+ [_DataManagement_](https://github.com/Vaufreyd/DataManagement): provide classes to handle all data (timestamped files, video fiels, etc.)
++ [_DataManagement_](https://github.com/Vaufreyd/DataManagement): provide classes to handle all data (timestamped files, video files, etc.)
 + [_Drawing_](https://github.com/Vaufreyd/Drawing): classes to draw in OpenCV cv::Mat all data from the corpus. All these classes will resize draws to feat available space.
 + [_Map_](https://github.com/Vaufreyd/Map): dedicated to simple maps build with wall segments.
-+ [_Omiscid_](https://github.com/Vaufreyd/Omiscid): Omiscid 3.0b, codename Yggdrasil is a miidleware. We only used here its system abstraction layer and its JSON (de)serialization.
++ [_Omiscid_](https://github.com/Vaufreyd/Omiscid): Omiscid 3.0b, codename Yggdrasil is a middleware. We only used here its system abstraction layer and its JSON (de)serialization.
 
 On can also find subfolders:
 + _Kinect_: All classes dedicated to Kinect2. Under Windows, there will be classes to read, to record and/or to process data. Under Linux, everything is define to read Kinect2 data from MobileRGBD recordings.
