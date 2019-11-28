@@ -3,7 +3,7 @@
  * @ingroup ROS
  * @author Jean-Alix David, Inria
  * @author Dominique Vaufreydaz, Grenoble Alpes University, Inria
- * @author based on initial version by Amaury Nègre, Inria (2014)
+ * @author based on initial version by Amaury Nègre, CNRS, Inria (2014)
  * @copyright All right reserved.
  */
 
