@@ -6,7 +6,7 @@ To install this package into your catkin environment, just execute a clone opera
 
     $> git clone --recursive https://github.com/Vaufreyd/RGBDSyncSDK.git
 
-Then, you can compile it using catkin_make or catkin_build.
+Then, you can compile it using *catkin_make* or *catkin build*.
 
 ## Lauch reader program
 
