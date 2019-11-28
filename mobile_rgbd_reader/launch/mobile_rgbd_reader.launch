@@ -1,0 +1,12 @@
+<launch>
+    <arg name="DataPath" default="$(optenv HOME)/MobileRGBD/Curv_-60_132_-15_LivingLab_0.1"/>
+    <arg name="DepthToCameraPath" default="$(arg DataPath)/DepthToCameraTable.raw"/>
+
+    <param name="DataPath" type="string" value="$(arg DataPath)"/>
+    <param name="DepthToCameraTablePath" type="string" value="$(arg DepthToCameraPath)"/>
+
+    <node pkg="tf2_ros" type="static_transform_publisher" name="kinect_rgb_broadcaster" args="0 0 0 -1.57 0 -1.57 kinect2 kinect2_rgb" />
+
+    <node name="reader" pkg="mobile_rgbd_reader" type="mobile_rgbd_reader" output="screen">
+    </node>
+</launch>
