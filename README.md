@@ -18,7 +18,8 @@ First this repository contains submodules:
 + [_Omiscid_](https://github.com/Vaufreyd/Omiscid): Omiscid 3.0b, codename Yggdrasil is a middleware. We only used here its system abstraction layer and its JSON (de)serialization.
 
 On can also find subfolders:
-+ _Kinect_: All classes dedicated to Kinect2. Under Windows, there will be classes to read, to record and/or to process data. Under Linux, everything is define to read Kinect2 data from MobileRGBD recordings.
++ [**_mobile_rgbd_reader_**](https://github.com/Vaufreyd/RGBDSyncSDK/tree/master/mobile_rgbd_reader): A ROS package to feed data from MobileRGBD into a ROS architecture.
++ [**__Kinect_**](https://github.com/Vaufreyd/Kinect/tree/2f132dbb1098235230ffc83fb252749b942dcaa3): All classes dedicated to (submodule) Kinect2. Under Windows, there will be classes to read, to record and/or to process data. Under Linux, everything is define to read Kinect2 data from MobileRGBD recordings.
 + [**_GenerateVideoFromRecords_**](https://github.com/Vaufreyd/RGBDSyncSDK/tree/master/GenerateVideoFromRecords): an example to show how to synchronously read data from the corpus and generate a (composite) mp4 video.
 + [**_RecordKinect_**](https://github.com/Vaufreyd/RGBDSyncSDK/tree/master/RecordKinect): a project to make your own records using the Kinect2 device under Windows (RGB, Depth, Infrared, Body, Face, Audio). This project uses native Kinect2 SDK under Windows. Your records will be readable using RGBDSyncSDK under Windows/Linux/Mac OSX.
 
